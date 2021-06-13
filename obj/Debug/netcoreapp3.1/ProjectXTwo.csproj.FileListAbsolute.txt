@@ -1,0 +1,17 @@
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/ProjectXTwo.deps.json
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/ProjectXTwo.runtimeconfig.json
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/ProjectXTwo.runtimeconfig.dev.json
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/ProjectXTwo.dll
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/ProjectXTwo.pdb
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/OpenTK.dll
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/OpenTK.pdb
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/OpenTK.xml
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/OpenTK.dll.config
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.csprojAssemblyReference.cache
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.AssemblyInfoInputs.cache
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.AssemblyInfo.cs
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.csproj.CoreCompileInputs.cache
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.csproj.CopyComplete
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.dll
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.pdb
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.genruntimeconfig.cache

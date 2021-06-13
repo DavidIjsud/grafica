@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="OpenTK">
+      <HintPath>..\..\..\Documents\opentk-2014-07-23\Binaries\OpenTK\Release\OpenTK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
