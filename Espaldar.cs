@@ -24,6 +24,8 @@ namespace ProjectXTwo
             ////espaldar
             ///
 
+
+            
             GL.Begin(PrimitiveType.Quads);
             GL.Color3(1.0, 0.0, 0.0);
 
@@ -33,22 +35,26 @@ namespace ProjectXTwo
             GL.Vertex3(10 + (this.position_x), 1 + (this.position_y), -6 + (this.position_z));
 
             GL.End();
+
         }
     
 
-            public void Escalar()
+            public void Escalar(double x, double y, double z)
             {
-                throw new NotImplementedException();
+            GL.Scale(x, y , z);
             }
 
-            public void Rotar()
+            public void Rotar(double angulo, double x, double y, double z )
             {
-                throw new NotImplementedException();
+            GL.Rotate(angulo , x , y , z );
+
             }
 
-            public void Trasladar()
+            public void Trasladar(double x, double y, double z)
             {
-                throw new NotImplementedException();
+                
+                    
+                
             }
 
     }

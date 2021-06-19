@@ -99,19 +99,20 @@ namespace ProjectXTwo
             GL.End();
         }
 
-        public void Escalar()
+        public void Escalar(double x, double y, double z)
         {
-            throw new NotImplementedException();
+             GL.Scale(x, y, z);
         }
 
-        public void Rotar()
+        public void Rotar(double angulo, double x, double y, double z)
         {
-            throw new NotImplementedException();
+            GL.Rotate(angulo, x, y, z);
         }
 
-        public void Trasladar()
+        public void Trasladar(double x, double y, double z)
         {
-            throw new NotImplementedException();
+           
+            
         }
     }
 }

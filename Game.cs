@@ -9,19 +9,16 @@ namespace ProjectXTwo
     public class  Game : GameWindow
     {
 
-        Dictionary<string, IObjeto> listaObjetos;
+      
+
+        Escenario escenario;
+
+        double angulo;
 
         public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) {
 
-            fillOfElementsInGame();
-            
+            this.escenario = new Escenario(0.0, 0.0, 0.0, 0.0, 0.0);
             this.Run(1.0/60.0);
-        }
-
-        private void fillOfElementsInGame() {
-
-            this.listaObjetos = new Dictionary<string, IObjeto>();
-            this.listaObjetos.Add("Escenario" , new Escenario(4.0, 10.0, 10.0, 1.0, 1.0));
 
         }
 
@@ -52,16 +49,27 @@ namespace ProjectXTwo
             GL.LoadIdentity();
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit );
 
-            GL.Translate(-10.0, -15.0, -40.0);
 
+            GL.Translate(-5.0, 0.0, -20.0);
 
-            foreach(KeyValuePair<string, IObjeto> element in this.listaObjetos) {
-                element.Value.Dibujar();      
-            }
+            GL.PushMatrix();
+
             
+            
+            this.escenario.Rotar(angulo , 1.0, 0.0, 0.0);
+            this.escenario.Escalar(1, 1, 1);
+
+            this.escenario.Dibujar();
+
+            GL.PopMatrix();
 
             Context.SwapBuffers();
-            
+
+            this.angulo += 1.0;
+            if (this.angulo == 360)
+            {
+                this.angulo -= 360;
+            }
 
             base.OnRenderFrame(e);
         }

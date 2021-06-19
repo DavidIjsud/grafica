@@ -38,26 +38,38 @@ namespace ProjectXTwo
 
         public void Dibujar()
         {
-
+            
             foreach (KeyValuePair<string, IObjeto> element in this.listaPartes)
             {
                 element.Value.Dibujar();
             }
         }
 
-        public void Escalar()
+        public void Escalar(double x, double y, double z)
         {
-           
+            foreach (KeyValuePair<string, IObjeto> element in this.listaPartes)
+            {
+                element.Value.Escalar(x , y ,z);
+            }
         }
 
-        public void Rotar()
+        public void Rotar(double angulo, double x, double y, double z)
         {
-            
+            foreach(KeyValuePair<String , IObjeto> elemento in this.listaPartes ) {
+
+                elemento.Value.Rotar( angulo , x , y , z );
+
+            } 
         }
 
-        public void Trasladar()
+        public void Trasladar(double x, double y, double z)
         {
-            
+            foreach (KeyValuePair<String, IObjeto> elemento in this.listaPartes)
+            {
+
+                elemento.Value.Trasladar( x, y , z );
+
+            }
         }
 
        

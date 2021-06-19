@@ -20,30 +20,42 @@ namespace ProjectXTwo
             this.teta = teta;
             this.listaObjetos = new Dictionary<string, IObjeto>();
 
-            this.listaObjetos.Add("Silla", new Chair(4.0, 10.0, 10.0, 1.0, 1.0));
+            this.listaObjetos.Add("Silla", new Chair(this.position_y, this.position_x , this.position_x , this.escala ,  this.teta ));
         }
 
         public void Dibujar()
         {
+            
             foreach (KeyValuePair<string, IObjeto> element in this.listaObjetos)
             {
                 element.Value.Dibujar();
             }
         }
 
-        public void Escalar()
+        public void Escalar(double x, double y, double z)
         {
-           
+            foreach (KeyValuePair<string, IObjeto> element in this.listaObjetos)
+            {
+                element.Value.Escalar(x , y , z);
+            }
         }
 
-        public void Rotar()
+        public void Rotar(double angulo, double x, double y, double z)
         {
-            
+            foreach (KeyValuePair<string, IObjeto> element in this.listaObjetos)
+            {
+                element.Value.Rotar( angulo, x , y , z );
+            }
         }
 
-        public void Trasladar()
+        public void Trasladar(double x, double y, double z)
         {
-            
+            foreach (KeyValuePair<string, IObjeto> element in this.listaObjetos)
+            {
+                
+                element.Value.Trasladar( x , y , z );
+               
+            }
         }
 
 
