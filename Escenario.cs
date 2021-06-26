@@ -9,7 +9,7 @@ namespace ProjectXTwo
     public class Escenario : ObjetoGeneral, IObjeto
     {
 
-        Dictionary<string, IObjeto> listaObjetos;
+       public Dictionary<string, IObjeto> listaObjetos;
 
         public Escenario(double px, double py, double pz, double escala, double teta)
         {
@@ -21,6 +21,8 @@ namespace ProjectXTwo
             this.listaObjetos = new Dictionary<string, IObjeto>();
 
             this.listaObjetos.Add("Silla", new Chair(this.position_y, this.position_x , this.position_x , this.escala ,  this.teta ));
+            this.listaObjetos.Add("Mesa", new Mesa(10, 0, 10, this.escala, this.teta));
+
         }
 
         public void Dibujar()
@@ -57,17 +59,6 @@ namespace ProjectXTwo
                
             }
         }
-
-
-        //  pintarEscenario(100);
-
-      
-
-
-
-
-
-
 
     }
 }

@@ -1,18 +1,13 @@
 ﻿using System;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Graphics;
 using System.Collections.Generic;
 namespace ProjectXTwo
 {
-    public class Chair : ObjetoGeneral, IObjeto
+    public class Mesa : ObjetoGeneral, IObjeto
     {
-       public Dictionary<string, IObjeto> listaPartes;
 
-       
-       
+        public Dictionary<string, IObjeto> listaPartes;
 
-        public Chair( double px , double py, double pz , double escala , double teta )
+        public Mesa(double px, double py, double pz, double escala, double teta)
         {
             this.position_x = px;
             this.position_y = py;
@@ -21,14 +16,12 @@ namespace ProjectXTwo
             this.teta = teta;
 
             fillElementsOfChair();
-
         }
 
         private void fillElementsOfChair()
         {
 
             this.listaPartes = new Dictionary<string, IObjeto>();
-            this.listaPartes.Add("Espaldar", new Espaldar(this.position_x, this.position_y, this.position_z, this.escala, this.teta));
             this.listaPartes.Add("Apoyador", new ApoyadorPoto(this.position_x, this.position_y, this.position_z, this.escala, this.teta));
             this.listaPartes.Add("PrimeraPata", new PrimeraPata(this.position_x, this.position_y, this.position_z, this.escala, this.teta));
             this.listaPartes.Add("SegundaPata", new SegundaPata(this.position_x, this.position_y, this.position_z, this.escala, this.teta));
@@ -38,7 +31,7 @@ namespace ProjectXTwo
 
         public void Dibujar()
         {
-            
+
             foreach (KeyValuePair<string, IObjeto> element in this.listaPartes)
             {
                 element.Value.Dibujar();
@@ -49,17 +42,18 @@ namespace ProjectXTwo
         {
             foreach (KeyValuePair<string, IObjeto> element in this.listaPartes)
             {
-                element.Value.Escalar(x , y ,z);
+                element.Value.Escalar(x, y, z);
             }
         }
 
         public void Rotar(double angulo, double x, double y, double z)
         {
-            foreach(KeyValuePair<String , IObjeto> elemento in this.listaPartes ) {
+            foreach (KeyValuePair<String, IObjeto> elemento in this.listaPartes)
+            {
 
-                elemento.Value.Rotar( angulo , x , y , z );
+                elemento.Value.Rotar(angulo, x, y, z);
 
-            } 
+            }
         }
 
         public void Trasladar(double x, double y, double z)
@@ -67,16 +61,9 @@ namespace ProjectXTwo
             foreach (KeyValuePair<String, IObjeto> elemento in this.listaPartes)
             {
 
-                elemento.Value.Trasladar( x, y , z );
+                elemento.Value.Trasladar(x, y, z);
 
             }
         }
-
-       
-
-
-       
-
-        
     }
 }

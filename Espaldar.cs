@@ -41,19 +41,20 @@ namespace ProjectXTwo
 
             public void Escalar(double x, double y, double z)
             {
-            GL.Scale(x, y , z);
+                GL.Scale(x, y , z);
             }
 
             public void Rotar(double angulo, double x, double y, double z )
-            {
-            GL.Rotate(angulo , x , y , z );
-
+             {
+            
+                GL.Rotate(angulo , x , y , z );
+           
             }
 
             public void Trasladar(double x, double y, double z)
             {
-                
-                    
+
+            GL.Translate( x, y ,z );    
                 
             }
 

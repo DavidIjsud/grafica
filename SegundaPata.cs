@@ -109,9 +109,9 @@ namespace ProjectXTwo
 
         public void Trasladar(double x, double y, double z)
         {
-           
-            
-           
+
+            GL.Translate(x, y, z);
+
         }
     }
 }
