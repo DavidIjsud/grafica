@@ -11,17 +11,13 @@ namespace ProjectXTwo
 
        public Dictionary<string, IObjeto> listaObjetos;
 
-        public Escenario(double px, double py, double pz, double escala, double teta)
+        public Escenario()
         {
-            this.position_x = px;
-            this.position_y = py;
-            this.position_z = pz;
-            this.escala = escala;
-            this.teta = teta;
+            
             this.listaObjetos = new Dictionary<string, IObjeto>();
 
-            this.listaObjetos.Add("Silla", new Chair(this.position_y, this.position_x , this.position_x , this.escala ,  this.teta ));
-            this.listaObjetos.Add("Mesa", new Mesa(10, 0, 10, this.escala, this.teta));
+            this.listaObjetos.Add("Silla", new Chair());
+            this.listaObjetos.Add("Mesa", new Mesa());
 
         }
 
@@ -34,11 +30,11 @@ namespace ProjectXTwo
             }
         }
 
-        public void Escalar(double x, double y, double z)
+        public void Escalar( double x , double y , double z)
         {
             foreach (KeyValuePair<string, IObjeto> element in this.listaObjetos)
             {
-                element.Value.Escalar(x , y , z);
+                element.Value.Escalar( x  , y , z);
             }
         }
 
@@ -50,12 +46,12 @@ namespace ProjectXTwo
             }
         }
 
-        public void Trasladar(double x, double y, double z)
+        public void Trasladar()
         {
             foreach (KeyValuePair<string, IObjeto> element in this.listaObjetos)
             {
                 
-                element.Value.Trasladar( x , y , z );
+                element.Value.Trasladar( );
                
             }
         }
