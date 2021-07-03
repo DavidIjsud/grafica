@@ -34,8 +34,6 @@ namespace ProjectXTwo
             GL.PushMatrix();
             GL.Translate(this.position_x, this.position_y , this.position_z);
             GL.Rotate(this.anguloRotacion, 1, 0, 0);
-            GL.Rotate(this.anguloRotacion, 0, 1, 0);
-            GL.Rotate(this.anguloRotacion, 0, 0, 1);
             GL.Scale(this.escalaX, this.escalaY, this.escalaZ);
             foreach (KeyValuePair<string, IObjeto> element in this.listaPartes)
             {
