@@ -54,13 +54,7 @@ namespace ProjectXTwo
             base.OnUpdateFrame(e);
             KeyboardState x = OpenTK.Input.Keyboard.GetState();
 
-
-//////////////////////////////////////////////////ESTO PARA ROTAR Y ESCALAR TODO EL ESCENARIO/////////////////////////////////////////////////////////////////////////////
-
-           
-
-           
-
+            Evento.eventoLanzado(x , this.escenario);
 
         }
 

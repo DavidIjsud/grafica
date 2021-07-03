@@ -7,17 +7,25 @@ namespace ProjectXTwo
     {
        public static void eventoLanzado( KeyboardState x , Escenario escenario ) {
 
+            if ( x.IsKeyDown(Key.G) ) {
+             // Animacion[] animacion =   escenario.cargarJson();
+                Robot robot = (Robot)escenario.listaObjetos["Robot"];
+                robot.animar();
+
+            }
+
+
             if (x.IsKeyDown(Key.R) && x.IsKeyDown(Key.E))
             {
 
-                this.escenario.Rotar(this.escenario.anguloRotacion, 1, 0, 0);
-                //this.escenario.Rotar(this.escenario.anguloRotacion,0 , 1, 0);
-                //this.escenario.Rotar(this.escenario.anguloRotacion, 0, 0, 1);
+                escenario.Rotar(escenario.anguloRotacion, 1, 0, 0);
+                //escenario.Rotar(escenario.anguloRotacion,0 , 1, 0);
+                //escenario.Rotar(escenario.anguloRotacion, 0, 0, 1);
 
-                this.escenario.anguloRotacion += 1.0;
-                if (this.escenario.anguloRotacion > 360)
+                escenario.anguloRotacion += 1.0;
+                if (escenario.anguloRotacion > 360)
                 {
-                    this.escenario.anguloRotacion -= 360;
+                    escenario.anguloRotacion -= 360;
                 }
 
 
@@ -27,23 +35,30 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.Plus) && x.IsKeyDown(Key.E))
             {
 
-                this.escenario.escalaX = this.escenario.escalaX + 0.1;
-                this.escenario.escalaY = this.escenario.escalaY + 0.1;
-                this.escenario.escalaZ = this.escenario.escalaZ + 0.1;
+                escenario.escalaX = escenario.escalaX + 0.1;
+                escenario.escalaY = escenario.escalaY + 0.1;
+                escenario.escalaZ = escenario.escalaZ + 0.1;
 
 
-                this.escenario.Escalar(this.escenario.escalaX, this.escenario.escalaY, this.escenario.escalaZ);
+                escenario.Escalar(escenario.escalaX, escenario.escalaY, escenario.escalaZ);
             }
 
             if (x.IsKeyDown(Key.Minus) && x.IsKeyDown(Key.E))
             {
 
-                this.escenario.escalaX = this.escenario.escalaX - 0.1;
-                this.escenario.escalaY = this.escenario.escalaY - 0.1;
-                this.escenario.escalaZ = this.escenario.escalaZ - 0.1;
+                escenario.escalaX = escenario.escalaX - 0.1;
+                escenario.escalaY = escenario.escalaY - 0.1;
+                escenario.escalaZ = escenario.escalaZ - 0.1;
 
 
-                this.escenario.Escalar(this.escenario.escalaX, this.escenario.escalaY, this.escenario.escalaZ);
+                escenario.Escalar(escenario.escalaX, escenario.escalaY, escenario.escalaZ);
+            }
+
+
+            if (x.IsKeyDown(Key.H))
+            {
+                escenario.position_y = escenario.position_y + 0.5;
+
             }
 
             ///////////////////////////////////////////////////////SILLA//////////////////////////////////////////////////////////////////////
@@ -52,28 +67,28 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.S) && x.IsKeyDown(Key.Up))
             { // hacia arriba en Y
 
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.position_y = silla.position_y + 0.5;
             }
 
             if (x.IsKeyDown(Key.S) && x.IsKeyDown(Key.Down)) // hacia abajo en Y
             {
 
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.position_y = silla.position_y - 0.5;
             }
 
             if (x.IsKeyDown(Key.S) && x.IsKeyDown(Key.Right))
             { // hacia derecha en X
 
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.position_x = silla.position_x + 0.5;
             }
 
             if (x.IsKeyDown(Key.S) && x.IsKeyDown(Key.Left)) // hacia izquierda en X
             {
 
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.position_x = silla.position_x - 0.5;
             }
 
@@ -81,14 +96,14 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.S) && x.IsKeyDown(Key.Up) && x.IsKeyDown(Key.Z))
             { // hacia Z +
 
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.position_z = silla.position_z + 0.5;
             }
 
             if (x.IsKeyDown(Key.S) && x.IsKeyDown(Key.Down) && x.IsKeyDown(Key.Z)) // hacia Z -
             {
 
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.position_z = silla.position_z - 0.5;
             }
 
@@ -98,7 +113,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.R) && x.IsKeyDown(Key.S))
             { //angulo positivo
 
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.anguloRotacion = silla.anguloRotacion + 1.0;
 
             }
@@ -109,7 +124,7 @@ namespace ProjectXTwo
 
             if (x.IsKeyDown(Key.E) && x.IsKeyDown(Key.S) && x.IsKeyDown(Key.Up))
             {
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.escalaX = silla.escalaX + 0.1;
                 silla.escalaY = silla.escalaY + 0.1;
                 silla.escalaZ = silla.escalaZ + 0.1;
@@ -118,7 +133,7 @@ namespace ProjectXTwo
 
             if (x.IsKeyDown(Key.E) && x.IsKeyDown(Key.S) && x.IsKeyDown(Key.Down))
             {
-                ObjetoGeneral silla = (ObjetoGeneral)this.escenario.listaObjetos["Silla"];
+                ObjetoGeneral silla = (ObjetoGeneral)escenario.listaObjetos["Silla"];
                 silla.escalaX = silla.escalaX - 0.1;
                 silla.escalaY = silla.escalaY - 0.1;
                 silla.escalaZ = silla.escalaZ - 0.1;
@@ -132,28 +147,28 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.M) && x.IsKeyDown(Key.Up))
             { // hacia arriba en Y
 
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
                 mesa.position_y = mesa.position_y + 0.5;
             }
 
             if (x.IsKeyDown(Key.M) && x.IsKeyDown(Key.Down)) // hacia abajo en Y
             {
 
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
                 mesa.position_y = mesa.position_y - 0.5;
             }
 
             if (x.IsKeyDown(Key.M) && x.IsKeyDown(Key.Right))
             { // hacia derecha en X
 
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
                 mesa.position_x = mesa.position_x + 0.5;
             }
 
             if (x.IsKeyDown(Key.M) && x.IsKeyDown(Key.Left)) // hacia izquierda en X
             {
 
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
                 mesa.position_x = mesa.position_x - 0.5;
             }
 
@@ -161,14 +176,14 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.M) && x.IsKeyDown(Key.Up) && x.IsKeyDown(Key.Z))
             { // hacia Z +
 
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
                 mesa.position_z = mesa.position_z + 0.5;
             }
 
             if (x.IsKeyDown(Key.M) && x.IsKeyDown(Key.Down) && x.IsKeyDown(Key.Z)) // hacia Z -
             {
 
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
                 mesa.position_z = mesa.position_z - 0.5;
             }
 
@@ -178,7 +193,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.R) && x.IsKeyDown(Key.M))
             { //angulo positivo
 
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
                 mesa.anguloRotacion = mesa.anguloRotacion + 1.0;
 
             }
@@ -189,7 +204,7 @@ namespace ProjectXTwo
 
             if (x.IsKeyDown(Key.E) && x.IsKeyDown(Key.M) && x.IsKeyDown(Key.Up))
             {
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
 
                 mesa.escalaX = mesa.escalaX + 0.1;
                 mesa.escalaY = mesa.escalaY + 0.1;
@@ -199,7 +214,7 @@ namespace ProjectXTwo
 
             if (x.IsKeyDown(Key.E) && x.IsKeyDown(Key.M) && x.IsKeyDown(Key.Down))
             {
-                ObjetoGeneral mesa = (ObjetoGeneral)this.escenario.listaObjetos["Mesa"];
+                ObjetoGeneral mesa = (ObjetoGeneral)escenario.listaObjetos["Mesa"];
 
                 mesa.escalaX = mesa.escalaX - 0.1;
                 mesa.escalaY = mesa.escalaY - 0.1;
@@ -216,7 +231,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.Up) && x.IsKeyDown(Key.P))
             { // hacia arriba en Y
 
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.position_y = primeraPata.position_y + 0.5;
             }
@@ -224,7 +239,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.Down) && x.IsKeyDown(Key.P)) // hacia abajo en Y
             {
 
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.position_y = primeraPata.position_y - 0.5;
             }
@@ -232,7 +247,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.Right) && x.IsKeyDown(Key.P))
             { // hacia derecha en X
 
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.position_x = primeraPata.position_x + 0.5;
             }
@@ -240,7 +255,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.Left) && x.IsKeyDown(Key.P)) // hacia izquierda en X
             {
 
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.position_x = primeraPata.position_x - 0.5;
             }
@@ -249,7 +264,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.Up) && x.IsKeyDown(Key.Z) && x.IsKeyDown(Key.P))
             { // hacia Z +
 
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.position_z = primeraPata.position_z + 0.5;
             }
@@ -257,7 +272,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.Down) && x.IsKeyDown(Key.Z) && x.IsKeyDown(Key.P)) // hacia Z -
             {
 
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.position_z = primeraPata.position_z - 0.5;
             }
@@ -268,7 +283,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.R) && x.IsKeyDown(Key.P))
             { //angulo positivo
 
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.anguloRotacion = primeraPata.anguloRotacion + 1.0;
 
@@ -276,7 +291,7 @@ namespace ProjectXTwo
 
             if (x.IsKeyDown(Key.P) && x.IsKeyDown(Key.O))
             {
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.escalaX = primeraPata.escalaX + 0.1;
                 primeraPata.escalaY = primeraPata.escalaY + 0.1;
@@ -285,7 +300,7 @@ namespace ProjectXTwo
 
             if (x.IsKeyDown(Key.P) && x.IsKeyDown(Key.M))
             {
-                Mesa mesa = (Mesa)this.escenario.listaObjetos["Mesa"];
+                Mesa mesa = (Mesa)escenario.listaObjetos["Mesa"];
                 PrimeraPata primeraPata = (PrimeraPata)mesa.listaPartes["PrimeraPata"];
                 primeraPata.escalaX = primeraPata.escalaX - 0.1;
                 primeraPata.escalaY = primeraPata.escalaY - 0.1;
@@ -301,7 +316,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.W) && x.IsKeyDown(Key.P))
             { // hacia arriba en Y
 
-                Chair silla = (Chair)this.escenario.listaObjetos["Silla"];
+                Chair silla = (Chair)escenario.listaObjetos["Silla"];
                 SegundaPata segundaPata = (SegundaPata)silla.listaPartes["SegundaPata"];
                 segundaPata.position_y = segundaPata.position_y + 0.5;
             }
@@ -309,7 +324,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.S) && x.IsKeyDown(Key.P)) // hacia abajo en Y
             {
 
-                Chair silla = (Chair)this.escenario.listaObjetos["Silla"];
+                Chair silla = (Chair)escenario.listaObjetos["Silla"];
                 SegundaPata segundaPata = (SegundaPata)silla.listaPartes["SegundaPata"];
                 segundaPata.position_y = segundaPata.position_y - 0.5;
             }
@@ -317,7 +332,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.D) && x.IsKeyDown(Key.P))
             { // hacia derecha en X
 
-                Chair silla = (Chair)this.escenario.listaObjetos["Silla"];
+                Chair silla = (Chair)escenario.listaObjetos["Silla"];
                 SegundaPata segundaPata = (SegundaPata)silla.listaPartes["SegundaPata"];
                 segundaPata.position_x = segundaPata.position_x + 0.5;
             }
@@ -325,7 +340,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.A) && x.IsKeyDown(Key.P)) // hacia izquierda en X
             {
 
-                Chair silla = (Chair)this.escenario.listaObjetos["Silla"];
+                Chair silla = (Chair)escenario.listaObjetos["Silla"];
                 SegundaPata segundaPata = (SegundaPata)silla.listaPartes["SegundaPata"];
                 segundaPata.position_x = segundaPata.position_x - 0.5;
             }
@@ -336,7 +351,7 @@ namespace ProjectXTwo
             if (x.IsKeyDown(Key.R) && x.IsKeyDown(Key.C))
             { //angulo positivo
 
-                Chair silla = (Chair)this.escenario.listaObjetos["Silla"];
+                Chair silla = (Chair)escenario.listaObjetos["Silla"];
                 SegundaPata segundaPata = (SegundaPata)silla.listaPartes["SegundaPata"];
                 segundaPata.anguloRotacion = segundaPata.anguloRotacion + 1.0;
 
@@ -344,7 +359,7 @@ namespace ProjectXTwo
 
             if (x.IsKeyDown(Key.C) && x.IsKeyDown(Key.W))
             {
-                Chair silla = (Chair)this.escenario.listaObjetos["Silla"];
+                Chair silla = (Chair)escenario.listaObjetos["Silla"];
                 SegundaPata segundaPata = (SegundaPata)silla.listaPartes["SegundaPata"];
                 segundaPata.escalaX = segundaPata.escalaX + 0.1;
                 segundaPata.escalaY = segundaPata.escalaY + 0.1;
@@ -353,7 +368,7 @@ namespace ProjectXTwo
 
             if (x.IsKeyDown(Key.C) && x.IsKeyDown(Key.X))
             {
-                Chair silla = (Chair)this.escenario.listaObjetos["Silla"];
+                Chair silla = (Chair)escenario.listaObjetos["Silla"];
                 SegundaPata segundaPata = (SegundaPata)silla.listaPartes["SegundaPata"];
                 segundaPata.escalaX = segundaPata.escalaX - 0.1;
                 segundaPata.escalaY = segundaPata.escalaY - 0.1;

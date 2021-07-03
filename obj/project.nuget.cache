@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "v8aLIDh2202/MTFYrZnNlpQY15kOiWIRw5WGjMsB/eh33fFx2iMhfV7CTcL+oMSa13er7E6FDfeZjt3TGMhw7w==",
+  "dgSpecHash": "bzQPy49Wzt2nRUSuPxiMpYQAvIqn4e1JQQvWkdKo848x9efQivSdqR4lYhhyz8i2JJ6pyziqbYR7/T/+rlCy0w==",
   "success": true,
   "projectFilePath": "/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/ProjectXTwo.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/davidgarcia/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -15,3 +15,4 @@
 /Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.dll
 /Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.pdb
 /Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/obj/Debug/netcoreapp3.1/ProjectXTwo.genruntimeconfig.cache
+/Users/davidgarcia/Projects/ProjectXTwo/ProjectXTwo/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll

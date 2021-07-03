@@ -10,4 +10,7 @@
       <HintPath>..\..\..\Documents\opentk-2014-07-23\Binaries\OpenTK\Release\OpenTK.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
 </Project>
