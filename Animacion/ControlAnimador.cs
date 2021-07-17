@@ -38,7 +38,9 @@ namespace ProjectXTwo.Animacion
 
                 case nameof(Acciones.Rotar):
 
-                    Rotar(animacion);
+                    await Task.Run(() => {
+                        Rotar(animacion);
+                    });
 
                     break;
                     
