@@ -3,13 +3,13 @@ using OpenTK.Graphics.OpenGL;
 
 namespace ProjectXTwo
 {
-    public class Cuerpo : ObjetoGeneral, IObjeto
+    public class Cuerpo : ObjetoGeneral
     {
         public Cuerpo()
         {
         }
 
-        public void Dibujar()
+        public override void Dibujar()
         {
             ///cuerpo
             ///
@@ -30,17 +30,17 @@ namespace ProjectXTwo
             GL.PopMatrix(); 
         }
 
-        public void Escalar(double x, double y, double z)
+        public override void  Escalar(double x, double y, double z)
         {
             
         }
 
-        public void Rotar(double angulo, double x, double y, double z)
+        public override void  Rotar(double angulo, double x, double y, double z)
         {
             
         }
 
-        public void Trasladar()
+        public override void Trasladar()
         {
             
         }

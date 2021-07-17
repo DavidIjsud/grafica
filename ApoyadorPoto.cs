@@ -5,7 +5,7 @@ using OpenTK.Graphics;
 using System.Collections.Generic;
 namespace ProjectXTwo
 {
-    public class ApoyadorPoto : ObjetoGeneral, IObjeto
+    public class ApoyadorPoto : ObjetoGeneral
     {
 
     
@@ -15,7 +15,7 @@ namespace ProjectXTwo
                 
         }
 
-        public void Dibujar()
+        public override void Dibujar()
         {
             ///apoyador de poto
             ///
@@ -37,19 +37,19 @@ namespace ProjectXTwo
             GL.PopMatrix();
         }
 
-        public void Escalar(double x, double y, double z)
+        public override void Escalar(double x, double y, double z)
         {
             this.escalaX = x;
             this.escalaY = y;
             this.escalaZ = z;
         }
 
-        public void Rotar(double angulo, double x, double y, double z)
+        public override void Rotar(double angulo, double x, double y, double z)
         {
             
         }
 
-        public void Trasladar()
+        public override void Trasladar()
         {
 
 

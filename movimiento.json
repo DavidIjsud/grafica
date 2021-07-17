@@ -1,6 +1,18 @@
 ﻿[
   {
-    "cuantosPasos": 5,
-    "tipoAnimacion": 1
+    "accion": "TrasladarEnXMas",
+    "objeto": "Silla"
+
+  },
+  {
+    "accion": "TrasladarEnZMas",
+    "objeto": "Silla_Espaldar"
+
+  },
+  {
+    "accion": "TrasladarEnYMas",
+    "objeto": "Mesa"
+
   }
+
 ]

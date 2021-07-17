@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Graphics;
-using System.Collections.Generic;
 
 namespace ProjectXTwo
 {
-    public class Mesa : ObjetoGeneral, IObjeto
+    public class Mesa : ObjetoGeneral
     {
 
         public Dictionary<string, IObjeto> listaPartes;
@@ -28,7 +27,7 @@ namespace ProjectXTwo
             this.listaPartes.Add("CuartaPata", new CuartaPata());
         }
 
-        public void Dibujar()
+        public override void Dibujar()
         {
 
             GL.PushMatrix();
@@ -42,19 +41,19 @@ namespace ProjectXTwo
             GL.PopMatrix();
         }
 
-        public void Escalar(double x, double y, double z)
+        public override void Escalar(double x, double y, double z)
         {
             this.escalaX = x;
             this.escalaY = y;
             this.escalaZ = z;
         }
 
-        public void Rotar(double angulo, double x, double y, double z)
+        public override void Rotar(double angulo, double x, double y, double z)
         {
             this.anguloRotacion = angulo;
         }
 
-        public void Trasladar()
+        public override void Trasladar()
         {
            
         }

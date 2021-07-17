@@ -7,14 +7,15 @@ namespace ProjectXTwo
     {
        public static void eventoLanzado( KeyboardState x , Escenario escenario ) {
 
-            if ( x.IsKeyDown(Key.G) ) {
-             // Animacion[] animacion =   escenario.cargarJson();
-                Robot robot = (Robot)escenario.listaObjetos["Robot"];
-                robot.animar();
+
+            if ( x.IsKeyDown(Key.A) ) {
+
+                escenario.AnimarEscena();
+
 
             }
 
-
+          
             if (x.IsKeyDown(Key.R) && x.IsKeyDown(Key.E))
             {
 

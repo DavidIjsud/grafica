@@ -2,13 +2,18 @@
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Graphics;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace ProjectXTwo
 {
-    public class Robot : ObjetoGeneral, IObjeto
+    public class Robot : ObjetoGeneral
     {
 
         public Dictionary<string, IObjeto> listaPartes;
+
+        double posicionAdelante = 0.1;
+        double posicionDerecha = 0.1;
 
         public Robot()
         {
@@ -25,7 +30,7 @@ namespace ProjectXTwo
             this.listaPartes.Add("PiernaIzquierda", new PiernaIzquierda());
         }
 
-        public void Dibujar()
+        public override void Dibujar()
         {
             GL.PushMatrix();
             GL.Translate(this.position_x, this.position_y, this.position_z);
@@ -44,38 +49,61 @@ namespace ProjectXTwo
 
             System.Timers.Timer oTimer = new System.Timers.Timer();
             oTimer.Interval = 1000;
-            oTimer.Elapsed += EjecutarAccion;
+            oTimer.Start();
 
-            this.escalaX = this.escalaX + 0.2;
-            this.escalaY = this.escalaY + 0.2;
-            this.escalaZ = this.escalaZ + 0.2;
+           
 
         }
 
 
-        private  void EjecutarAccion(Object source, System.Timers.ElapsedEventArgs e)
+        /*private  void EjecutarAccion(Object source, System.Timers.ElapsedEventArgs e)
         {
 
-            this.escalaX = this.escalaX + 0.2;
-            this.escalaY = this.escalaY + 0.2;
-            this.escalaZ = this.escalaZ + 0.2;
+            
+
+            Animacion[] a = null;
+            string archivoJson;
+            string path = @"/Users/davidgarcia/Documents/David things/UAGRM/Topico avanzado de programacion/ProyectoGrafica/archivo.json";
+
+            using (var reader = new StreamReader(path))
+            {
+                archivoJson = reader.ReadToEnd();
+
+            }
+
+            a = JsonConvert.DeserializeObject<Animacion[]>(archivoJson);
 
 
-        }
+            if (posicionAdelante != a[0].PasosAdelante)
+            {
+                posicionAdelante += 0.2;
+                this.position_z = posicionAdelante;
+                posicionDerecha += 0.2;
+                this.position_x = posicionDerecha;
+            }
+            else {
 
-        public void Escalar(double x, double y, double z)
+                posicionDerecha += 0.2;
+                this.position_x = posicionDerecha;
+
+            }
+
+        } */
+
+        public override void Escalar(double x, double y, double z)
         {
             
         }
 
-        public void Rotar(double angulo, double x, double y, double z)
+        public override void Rotar(double angulo, double x, double y, double z)
         {
            
         }
 
-        public void Trasladar()
+        public override void Trasladar()
         {
             
         }
+
     }
 }

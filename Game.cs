@@ -37,7 +37,6 @@ namespace ProjectXTwo
             GL.Viewport(0, 0, Width, Height);
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
-
            
            Matrix4 matrix = Matrix4.Perspective(45.0f, Width / Height, 1.0f,100.0f);
            GL.LoadMatrix( ref matrix );
@@ -63,7 +62,7 @@ namespace ProjectXTwo
         {
             GL.LoadIdentity();
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit );
-
+            GL.Translate(0.0 , 0.0 , -40.0);
 
 
             GL.PushMatrix();

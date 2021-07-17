@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 namespace ProjectXTwo
 {
-    public class SegundaPata : ObjetoGeneral , IObjeto
+    public class SegundaPata : ObjetoGeneral
     {
         public SegundaPata()
         {
           
         }
 
-        public void Dibujar()
+        public override void Dibujar()
         {
             ///pata trasera 
             GL.PushMatrix();
@@ -89,19 +89,19 @@ namespace ProjectXTwo
             GL.PopMatrix();
         }
 
-        public void Escalar(double x, double y, double z)
+        public override void Escalar(double x, double y, double z)
         {
             this.escalaX = x;
             this.escalaY = y;
             this.escalaZ = z;
         }
 
-        public void Rotar(double angulo, double x, double y, double z)
+        public override void Rotar(double angulo, double x, double y, double z)
         {
          
         }
 
-        public void Trasladar()
+        public override void Trasladar()
         {
 
 

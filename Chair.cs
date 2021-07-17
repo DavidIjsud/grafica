@@ -5,7 +5,7 @@ using OpenTK.Graphics;
 using System.Collections.Generic;
 namespace ProjectXTwo
 {
-    public class Chair : ObjetoGeneral, IObjeto
+    public class Chair : ObjetoGeneral
     {
        public Dictionary<string, IObjeto> listaPartes;
 
@@ -32,7 +32,7 @@ namespace ProjectXTwo
             this.listaPartes.Add("CuartaPata", new CuartaPata());
         }
 
-        public void Dibujar()
+        public override void Dibujar()
         {
             GL.PushMatrix();
             GL.Translate(this.position_x , this.position_y , this.position_z);
@@ -45,28 +45,21 @@ namespace ProjectXTwo
             GL.PopMatrix();
         }
 
-        public void Escalar(double x, double y, double z)
+        public override void Escalar(double x, double y, double z)
         {
             this.escalaX = x;
             this.escalaY = y;
             this.escalaZ = z;
         }
 
-        public void Rotar(double angulo, double x, double y, double z)
+        public override void Rotar(double angulo, double x, double y, double z)
         {
             this.anguloRotacion = angulo;
         }
 
-        public void Trasladar()
+        public override void Trasladar()
         {
            
         }
-
-       
-
-
-       
-
-        
     }
 }
