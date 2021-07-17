@@ -20,19 +20,33 @@ namespace ProjectXTwo.Animacion
 
                 case  nameof( Acciones.TrasladarEnXMas ) :
 
-                    Thread t = new Thread( ControlAnimador.ThreadProcTrasladarEnXMas  );
-                    t.Start(animacion);
+                    await crearHiloX( animacion );
+                   
                     break;
                 case nameof( Acciones.TrasladarEnYMas ):
-                    Thread tt = new Thread(ControlAnimador.ThreadProcTrasladarEnYMas);
-                    tt.Start(animacion);
 
+                    await crearHiloY(animacion);
                     break;
 
 
             }
 
             
+        }
+
+        private static async Task crearHiloY(Animacion animacion)
+        {
+
+            Thread tt = new Thread(ControlAnimador.ThreadProcTrasladarEnYMas);
+            tt.Start(animacion);
+
+        }
+
+        private static async Task crearHiloX( Animacion animacion ) {
+
+           Thread t = new Thread(ControlAnimador.ThreadProcTrasladarEnXMas);
+            t.Start(animacion);
+
         }
 
         private static void MoverObjetoEnYMas(ObjetoGeneral objetoConcreto, int tiempo)
