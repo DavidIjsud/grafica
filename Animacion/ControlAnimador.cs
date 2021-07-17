@@ -16,36 +16,69 @@ namespace ProjectXTwo.Animacion
 
         public static async Task animar(  Animacion animacion ) {
 
+       
+
+
             switch ( animacion.Accion ) {
 
                 case  nameof( Acciones.TrasladarEnXMas ) :
 
-                    await crearHiloX( animacion );
-                   
+                    await Task.Run(() => {
+                        ThreadProcTrasladarEnXMas(animacion);
+                       
+                    });
+
+
                     break;
                 case nameof( Acciones.TrasladarEnYMas ):
-
-                    await crearHiloY(animacion);
+                    await Task.Run(() => {
+                        ThreadProcTrasladarEnYMas(animacion);
+                    });
                     break;
 
+                case nameof(Acciones.Rotar):
+
+                    Rotar(animacion);
+
+                    break;
+                    
 
             }
 
             
-        }
-
-        private static async Task crearHiloY(Animacion animacion)
-        {
-
-            Thread tt = new Thread(ControlAnimador.ThreadProcTrasladarEnYMas);
-            tt.Start(animacion);
 
         }
 
-        private static async Task crearHiloX( Animacion animacion ) {
+        private static void Rotar( Animacion a ) {
 
-           Thread t = new Thread(ControlAnimador.ThreadProcTrasladarEnXMas);
-            t.Start(animacion);
+            switch (a.Objeto)
+            {
+
+                case nameof(Objetos.Silla):
+                    int contador = 0;
+                    Chair silla = (Chair)a.escenario.listaObjetos["Silla"];
+
+                    while ( true ) {
+
+                        silla.anguloRotacion += 1.0;
+                        Thread.Sleep(90);
+
+                        contador += 100;
+
+                        if (contador > a.Tiempomili)
+                        {
+
+                            break;
+                        }
+
+                    }
+
+                    
+
+                    break;
+
+
+            }
 
         }
 

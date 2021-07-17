@@ -25,6 +25,7 @@ namespace ProjectXTwo.Animacion
 public enum Acciones {
         TrasladarEnXMas,
         TrasladarEnZMas,
-        TrasladarEnYMas
+        TrasladarEnYMas,
+        Rotar
     }
 }
