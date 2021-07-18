@@ -28,7 +28,6 @@ namespace ProjectXTwo.Animacion
                        
                     });
 
-
                     break;
                 case nameof( Acciones.TrasladarEnYMas ):
                     await Task.Run(() => {
