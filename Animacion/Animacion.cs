@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+
 namespace ProjectXTwo.Animacion
 {
     using System;
@@ -11,31 +12,34 @@ namespace ProjectXTwo.Animacion
 
     public partial class Animacion
     {
-        [JsonProperty("accion")]
-        public string Accion { get; set; }
-
         [JsonProperty("objeto")]
         public string Objeto { get; set; }
 
-        [JsonProperty("tiempomili")]
-        public int Tiempomili { get; set; }
-
+        [JsonProperty("acciones")]
+        public List<Accione> Acciones { get; set; }
 
         public Escenario escenario;
+    }
+
+    public partial class Accione
+    {
+        [JsonProperty("accion")]
+        public string Accion { get; set; }
+
+        [JsonProperty("tiempo")]
+        public int Tiempo { get; set; }
     }
 
     public partial class Animacion
     {
         public static List<Animacion> FromJson(string json) => JsonConvert.DeserializeObject<List<Animacion>>(json, ProjectXTwo.Animacion.Converter.Settings);
+        public void animar()
+        {
 
-        public async Task  animar() {
+            ControlAnimador.animar(this);
 
-           await ControlAnimador.animar(this);
-           
 
         }
-
-
     }
 
     public static class Serialize

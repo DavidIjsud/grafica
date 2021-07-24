@@ -41,12 +41,12 @@ namespace ProjectXTwo.Animacion
         }
 
 
-        public async void animarLibreto() {
+        public  void animarLibreto() {
 
             foreach ( Animacion a in this.listaAnimacion ) {
 
                a.escenario = this.escenario;
-               await a.animar(  );
+                a.animar();
 
             }
              

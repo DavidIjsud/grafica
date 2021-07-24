@@ -26,6 +26,8 @@ public enum Acciones {
         TrasladarEnXMas,
         TrasladarEnZMas,
         TrasladarEnYMas,
-        Rotar
+        Rotar,
+        Escalar,
+        EscalarMenos
     }
 }

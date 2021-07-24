@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -7,80 +8,141 @@ namespace ProjectXTwo.Animacion
     public class ControlAnimador
     {
 
-    
+
 
         public ControlAnimador()
         {
-          
+
         }
 
-        public static async Task animar(  Animacion animacion ) {
+        public static void animar(Animacion animacion) {
 
-       
+           
 
+            switch (animacion.Objeto) {
+                case nameof(Objetos.Silla):
 
-            switch ( animacion.Accion ) {
-
-                case  nameof( Acciones.TrasladarEnXMas ) :
-
-                    await Task.Run(() => {
-                        ThreadProcTrasladarEnXMas(animacion);
-                       
-                    });
+                    Chair silla = (Chair)animacion.escenario.listaObjetos["Silla"];
+                    _ = animarAccionesAsync(silla, animacion.Acciones);
 
                     break;
-                case nameof( Acciones.TrasladarEnYMas ):
-                    await Task.Run(() => {
-                        ThreadProcTrasladarEnYMas(animacion);
-                    });
+
+                case nameof(Objetos.Mesa):
+                    Mesa mesa = (Mesa)animacion.escenario.listaObjetos["Mesa"];
+                    _ = animarAccionesAsync(mesa, animacion.Acciones);
                     break;
-
-                case nameof(Acciones.Rotar):
-
-                    await Task.Run(() => {
-                        Rotar(animacion);
-                    });
-
-                    break;
-                    
 
             }
 
-            
+        }
+
+        private static async Task animarAccionesAsync (ObjetoGeneral o, List<Accione> listaAcciones){
+
+            foreach (Accione a in listaAcciones) {
+               await animarAccion( o , a );
+            }
 
         }
 
-        private static void Rotar( Animacion a ) {
+        private static async Task animarAccion( ObjetoGeneral o , Accione accione ) {
 
-            switch (a.Objeto)
+            switch (accione.Accion) {
+                case nameof(Acciones.TrasladarEnXMas):
+                    await Task.Run(() => {
+                        MoverObjetoEnXMas(o, accione.Tiempo);
+                    });
+                    break;
+                case nameof(Acciones.TrasladarEnYMas):
+                    await Task.Run(() => {
+                        MoverObjetoEnYMas(o, accione.Tiempo);
+                    });
+                    break;
+                case nameof(Acciones.Rotar):
+                    await Task.Run(() => {
+                        RotarObjeto(o, accione.Tiempo);
+                    } );
+                    break;
+
+                case nameof(Acciones.Escalar):
+                    await Task.Run(() => {
+                        EscalarObjeto(o, accione.Tiempo);
+                    });
+                    break;
+                case nameof(Acciones.EscalarMenos):
+                    await Task.Run(() => {
+                        EscalarObjetoMenos(o, accione.Tiempo);
+                    });
+                    break;
+            }
+
+        }
+
+
+        private static void EscalarObjetoMenos(ObjetoGeneral objetoGeneral, int tiempo)
+        {
+
+            int contador = 0;
+            while (true)
             {
 
-                case nameof(Objetos.Silla):
-                    int contador = 0;
-                    Chair silla = (Chair)a.escenario.listaObjetos["Silla"];
+                objetoGeneral.escalaX -= 0.02;
+                objetoGeneral.escalaY -= 0.02;
+                objetoGeneral.escalaZ -= 0.02;
+                Thread.Sleep(90);
 
-                    while ( true ) {
+                contador += 100;
 
-                        silla.anguloRotacion += 1.0;
-                        Thread.Sleep(90);
-
-                        contador += 100;
-
-                        if (contador > a.Tiempomili)
-                        {
-
-                            break;
-                        }
-
-                    }
-
-                    
+                if (contador > tiempo)
+                {
 
                     break;
-
+                }
 
             }
 
+        }
+
+
+        private static void EscalarObjeto( ObjetoGeneral objetoGeneral, int tiempo ){
+
+            int contador = 0;
+            while (true)
+            {
+
+                objetoGeneral.escalaX += 0.02;
+                objetoGeneral.escalaY += 0.02;
+                objetoGeneral.escalaZ += 0.02;
+                Thread.Sleep(90);
+
+                contador += 100;
+
+                if (contador > tiempo)
+                {
+
+                    break;
+                }
+
+            }
+
+        }
+
+        private static void RotarObjeto(ObjetoGeneral objetoConcreto, int tiempo) {
+            int contador = 0;
+            while (true)
+            {
+
+                objetoConcreto.anguloRotacion += 1.0;
+                Thread.Sleep(90);
+
+                contador += 100;
+
+                if (contador > tiempo)
+                {
+
+                    break;
+                }
+
+            }
         }
 
         private static void MoverObjetoEnYMas(ObjetoGeneral objetoConcreto, int tiempo)
@@ -106,24 +168,6 @@ namespace ProjectXTwo.Animacion
 
         }
 
-        private static void ThreadProcTrasladarEnYMas(object o)
-        {
-
-            Animacion a = (Animacion)o;
-
-            switch (a.Objeto)
-            {
-
-                case nameof(Objetos.Mesa):
-
-                    Mesa mesaToTraslate = (Mesa)a.escenario.listaObjetos["Mesa"];
-                    MoverObjetoEnYMas(mesaToTraslate, a.Tiempomili);
-
-                    break;
-
-
-            }
-        }
 
         private static void MoverObjetoEnXMas(ObjetoGeneral objetoConcreto , int tiempo) {
             int contador = 0;
@@ -145,22 +189,7 @@ namespace ProjectXTwo.Animacion
 
         }
 
-        private static void ThreadProcTrasladarEnXMas( object o ) {
 
-            Animacion a = (Animacion)o;
-
-            switch (  a.Objeto  ) {
-
-                case  nameof(Objetos.Mesa):
-
-                    Mesa mesaToTraslate = (Mesa)a.escenario.listaObjetos["Mesa"];
-                    MoverObjetoEnXMas(mesaToTraslate , a.Tiempomili);
-
-                    break;
-
-
-            }
-        }
 
     }
 }
